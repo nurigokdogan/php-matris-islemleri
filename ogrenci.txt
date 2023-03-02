@@ -1,0 +1,6 @@
+1 abdullah kaamil 10
+2 atakan burt 20
+3 adem demir 30
+4 mohammad akaad 40
+5 mohammad akaad 50
+6 mohammad akaad 20

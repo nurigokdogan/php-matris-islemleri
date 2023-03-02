@@ -1,0 +1,177 @@
+ÖDEV 3 (5 sorudur):
+
+Soru 1 (matris.php)
+-----------------------------------------------------------
+Matris işlemlerini hesaplayan bir program yazınız:
+- Matrisi satır satır okuyan bir fonksiyon yazınız
+- 2 matrisi çarpımını döndüren bir fonksiyon yazınız
+- 2 matrisi toplamını döndüren bir fonksiyon yazınız
+- 2 matrisin farkını döndüren bir fonksiyon yazınız
+- 1. matrisin discriminantını döndüren bir fonksiyon yazınız
+- 1. matrisin transpose'ını (satırlarla sutunları yer değiştiren) döndüren bir fonksiyon yazınız
+
+Örnek Senaryo (dikkat sayılar gerçek değerler değildir.)
+
+Matrislerin satır sayısını giriniz? 2
+Matrislerin sutun sayısını giriniz? 3
+
+1. Matrisin 1,1 elemanını giriniz? 20
+1. Matrisin 1,2 elemanını giriniz? 21
+1. Matrisin 1,3 elemanını giriniz? 33
+1. Matrisin 2,1 elemanını giriniz? 44
+1. Matrisin 2,2 elemanını giriniz? 23
+1. Matrisin 2,3 elemanını giriniz? 54
+
+2. Matrisin 1,1 elemanını giriniz? 10
+2. Matrisin 1,2 elemanını giriniz? 11
+2. Matrisin 1,3 elemanını giriniz? 13
+2. Matrisin 2,1 elemanını giriniz? 54
+2. Matrisin 2,2 elemanını giriniz? 53
+2. Matrisin 2,3 elemanını giriniz? 74
+
+Matris çarpımı:
+12 32 65
+32 54 25
+
+Matris toplamı
+34 65 99
+34 45 63 
+
+Matris farkı
+12 29 19
+34 25 13
+
+Matris transpose
+12 29
+34 25
+23 45
+
+Discriminant: 34.54   
+
+
+Soru 2: ogrenci.txt dosyasını satır satır okuyup, bolum10.txt, bolum12.txt, ... gibi her bölümdekileri öğrencileri bolumBOLUNMO.txt 
+şeklinde isimlendirilmiş ayrı ayrı dosyalara yazan yani bu bolumXX.txt dosyalarını oluşturan programı veriniz. Bölüm sayısı önceden bilinmemektedir. 
+ogrenci.txt dosyasının her satırının son sutununda bolum numaraları mevcuttur. O numaralara gore dosyalar oluşturulacaktır. 
+Bir dosya oluşturmak için $d = fpopen('dosyaadi', 'w'); gibi fopen komutunu kullanabilirsiniz. 'w' parameteresi dosyayı eğer yoksa oluşturup, 
+için write etmek için açan parametredir. İpucu: $d gibi dosya değişkenlerini bir array içinde tutabilirsiniz. 
+Eğer o isimde bolumXX.txt gibi bir dosya zaten açıldıysa, fopen yapmayıp sadece içine veriyi fputs ile yazmak yeterli olacaktır. 
+fputs komutu fgets komutunun tersini yapar. Yani dosyadan bir satır okumak yerine dosyaya bir satır ekler. 
+
+Soru 3: ogrenci.txt dosyasını satır satır okuyup, öğrenci numarasına göre sıralı ogrenciNoSiraliOgrenci.txt, bolumNoSiraliOgrenci, soyadSiraliOgrenci.txt 
+dosyalarını oluşturan programı veriniz. Bu dosyalardaki kayıtlar öğrenci numarası, bölüm no ve soyada göre sıralanmış kayıtları içerecektir. 
+Yani ogrenci.txt dosyasi 'r' fgets okunacak, diğer dosyalar ise 'w' fputs ile yazılacak
+
+Soru 4: Dosyaları karakter, kelime veya satırların kümesi kabul edip, dosyalar üzerinde bileşim, kesişim ve fark küme işlemleri yapan programı yazınız.
+ Bu soruda dosyaBirlesim($dosya1, $dosya2, $islemTuru), dosyaKesisim($dosya1, $dosya2, $islemTuru) ve dosyaFark($dosya1, $dosya2, $islemTuru) 
+ fonksiyonlarını yazmanız gerekmektedir. $islemTuru parametresi 'karakter', 'kelime', yada 'satir' olabilir. 
+ Küme işlemleri $islemTuru parametresine göre hesaplanmalıdır.
+
+Örnek senaryo: 
+
+Birinci dosya adi? a.txt
+Ikinci dosya adi? b.txt
+Kume islemi (0: cikis, 1: birlesim, 2: kesisim, 3: fark)? 1
+Islem turu (1: karakter, 2: kelime, 3:  satir)? 2
+
+a.txt dosyasi:
+ali
+kurt
+ali
+ayse
+demir
+
+b.txt dosyasi:
+kemal
+ayse
+zeynep
+kurt
+
+a.txt kelime-birlesim b.txt:
+ali
+kurt
+ayse
+demir
+kemal
+zeynep
+
+Kume islemi (0: cikis, 1: birlesim, 2: kesisim, 3: fark)? 1
+Islem turu (1: karakter, 2: kelime, 3:  satir)? 1
+
+a.txt karakter-birlesim b.txt:
+alikurtysedmznp
+
+Kume islemi (0: cikis, 1: birlesim, 2: kesisim, 3: fark)? 0
+Hoscakal kullanici.
+
+Soru 5: ogrenci.txt dosyasına yeni kayıt ekleyen, var olan bir kaydı dosyadan silen, bir öğrencinin adı ve bölümünü güncelleyen(değiştiren), 
+öğrenciyi numarsıyla sorgulayan ve orgencileri listeleyen programı yazınız. Programda söyle bir kod kullanınız ve gerisini siz tamamlayınız:
+
+print "Yapilacak islem (0:cikis, 1:kayit ekle, 2:kayit sil, 3:kayit degistir, 4:kayit listele, 5:kayit sorgula)? ";
+$islem = (int) fgets(STDIN);
+switch($islem){
+	case 0:	print "Hoscakalin!";
+			exit;
+	case 1:	kayitEkle();
+			break;
+	case 2:	kayitSil();
+			break;
+	case 3: kayitGuncelle();
+			break;
+	case 4:	kayitListele();
+			break;
+	case 4:	kayitsorgula();
+			break;
+}
+
+Örnek senaryo:
+
+Yapilacak islem (0:cikis, 1:kayit ekle, 2:kayit sil, 3:kayit degistir, 4:kayit listele, 5:kayit sorgula)? 4
+
+Kayit listeleme:
+----------------
+12 Ali KURT 10
+13 Ayse KURT 12
+15 Metin KURT 10
+16 Mahmut KURT 12
+
+Yapilacak islem (0:cikis, 1:kayit ekle, 2:kayit sil, 3:kayit degistir, 4:kayit listele, 5:kayit sorgula)? 2
+Silinecek ogrenci no? 14
+
+Kayit bulunamadı!
+
+Yapilacak islem (0:cikis, 1:kayit ekle, 2:kayit sil, 3:kayit degistir, 4:kayit listele, 5:kayit sorgula)? 2
+Silinecek ogrenci no? 15
+
+Kayit silindi!
+
+Yapilacak islem (0:cikis, 1:kayit ekle, 2:kayit sil, 3:kayit degistir, 4:kayit listele, 5:kayit sorgula)? 1
+
+Yeni ogrenci no? 18
+Yeni ogrenci adi? Mithat KURT
+Yeni ogrenci bolumu? 13
+
+[18, Mithat KURT, 13] kaydı dosyaya eklendi!
+
+Yapilacak islem (0:cikis, 1:kayit ekle, 2:kayit sil, 3:kayit degistir, 4:kayit listele, 5:kayit sorgula)? 3
+
+Degistirilecek kayit için ogrenci no? 13
+Kayıt bulundu: [13, Ayse KURT, 12]
+Yeni ogrenci adi? Aysenur KURT
+Yeni ogrenci bolumu? 10
+
+Kayıt değiştirildi: [13, Aysenur KURT, 10]
+
+Yapilacak islem (0:cikis, 1:kayit ekle, 2:kayit sil, 3:kayit degistir, 4:kayit listele, 5:kayit sorgula)? 5
+
+Ogrenci no? 19
+Kayit bulunamadı!
+
+Yapilacak islem (0:cikis, 1:kayit ekle, 2:kayit sil, 3:kayit degistir, 4:kayit listele, 5:kayit sorgula)? 5
+
+Ogrenci no? 18
+Kayit bulundu: [18, Mithat KURT, 13]
+
+
+
+
+
